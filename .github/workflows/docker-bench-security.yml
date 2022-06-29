@@ -11,9 +11,7 @@ jobs:
     - name: Use Vulnerable image 
       run: |
          docker pull imiell/bad-dockerfile
-         docker images
-         docker login -u ${{ secrets.docker_username }} -p ${{ secrets.docker_password }}
-         docker run 24c8ece58a1a
+ 
       
         
     - name: Run docker-bench-security 
