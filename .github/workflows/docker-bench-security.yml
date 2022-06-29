@@ -12,8 +12,9 @@ jobs:
       run: |
          docker pull imiell/bad-dockerfile
          docker images
+         #docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
          docker run abd4f451ddb7
-         docker login -u ${{ secrets.docker_user }} -p ${{ secrets.docker_password }}
+         docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
          
      
          
