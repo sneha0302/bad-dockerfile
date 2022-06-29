@@ -11,6 +11,7 @@ jobs:
     - name: Install docker 
       run: |
          sudo apt install docker.io -y
+         sudo snap install docker
          sudo docker --version
     
         
