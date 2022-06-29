@@ -4,13 +4,16 @@ on:
   workflow_dispatch:
   
 jobs:
-  Container-security:
+  Docker-security:
     runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     - name: Use Vulnerable image 
       run: |
          docker pull imiell/bad-dockerfile
+         docker run imiell/bad-dockerfile:latest
+         docker ps
+         
 
         
     - name: Run docker-bench-security 
