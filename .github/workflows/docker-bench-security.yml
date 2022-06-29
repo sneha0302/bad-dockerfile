@@ -8,34 +8,17 @@ jobs:
     runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
-
     - name: Install docker 
       run: |
          sudo apt install docker.io -y
-         docker --version
+         sudo docker --version
     
-    - name: Install the latest version docker 
-      run: |
-        curl -s https://get.docker.com/ | sh
-        #sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
-        sudo chmod g+rwx "$HOME/.docker" -R
-        
-    
-    - name: Run docker service 
-      run: |
-        sudo systemctl start docker 
-    - name: Install docker compose 
-      run: |
-        sudo pip install docker-compose
         
     - name: Build and deploy 
       run: |
-        git clone https://github.com/m4n3dw0lf/VulnLabs
-        cd VulnLabs
-        sudo docker-compose build
-        sudo docker-compose up -d
+        sudo docker pull imiell/bad-dockerfile
+        sudo docker build -t imiell/bad-dockerfile ./
+
         
     - name: Run docker-bench-security 
       run: |
