@@ -8,11 +8,23 @@ jobs:
     runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - name: Install docker 
+    - name: Install pip 
       run: |
-         sudo apt install docker.io -y
-         sudo snap install docker
-         sudo docker --version
+        curl -s https://bootstrap.pypa.io/get-pip.py | python3
+    
+    - name: Install the latest version docker 
+      run: |
+        curl -s https://get.docker.com/ | sh
+        #sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
+        sudo chmod g+rwx "$HOME/.docker" -R
+        
+    
+    - name: Run docker service 
+      run: |
+        sudo systemctl start docker 
+    - name: Install docker compose 
+      run: |
+        sudo pip install docker-compose
     
         
     - name: Build and deploy 
