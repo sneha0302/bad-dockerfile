@@ -11,10 +11,10 @@ jobs:
     - name: Use Vulnerable image 
       run: |
          docker pull imiell/bad-dockerfile
-         docker run imiell/bad-dockerfile:latest
-         docker ps
+         docker images
+         docker run bad-dockerfile:latest
+     
          
-
         
     - name: Run docker-bench-security 
       run: |
