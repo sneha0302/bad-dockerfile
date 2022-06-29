@@ -8,10 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - name: Install pip 
+    - name: Use Vulnerable image 
       run: |
          docker pull imiell/bad-dockerfile
-         docker build -t imiell/bad-dockerfile ./
+
     
 
         
