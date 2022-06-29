@@ -5,7 +5,7 @@ on:
   
 jobs:
   Container-security:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.10.17+1
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     - name: Use Vulnerable image 
