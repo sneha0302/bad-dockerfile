@@ -10,27 +10,8 @@ jobs:
     steps:
     - name: Install pip 
       run: |
-        curl -s https://bootstrap.pypa.io/get-pip.py | python3
-    
-    - name: Install the latest version docker 
-      run: |
-        curl -s https://get.docker.com/ | sh
-        #sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
-        sudo chmod g+rwx "$HOME/.docker" -R
-        
-    
-    - name: Run docker service 
-      run: |
-        sudo systemctl start docker 
-    - name: Install docker compose 
-      run: |
-        sudo pip install docker-compose
-    
-        
-    - name: Build and deploy 
-      run: |
-        sudo docker pull imiell/bad-dockerfile
-        sudo docker build -t /home/runner/work/bad-dockerfile/bad-dockerfile/ ./
+         docker pull imiell/bad-dockerfile
+         docker build -t imiell/bad-dockerfile/ ./
     
 
         
