@@ -188,7 +188,7 @@ RUN /rpmsquirt.sh
 
 # Precautionary failure with messages
 #
-CMD echo 'Vulnerable image' && /bin/false
+HEALTHCHECK CMD echo 'Vulnerable image' && /bin/false
 
 # Basic labels.
 # http://label-schema.org/
