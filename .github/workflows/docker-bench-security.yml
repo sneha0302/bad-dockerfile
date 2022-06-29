@@ -30,7 +30,8 @@ jobs:
     - name: Build and deploy 
       run: |
         sudo docker pull imiell/bad-dockerfile
-        sudo docker build -t imiell/bad-dockerfile ./
+        sudo docker build -t /home/runner/work/bad-dockerfile/bad-dockerfile/ ./
+    
 
         
     - name: Run docker-bench-security 
