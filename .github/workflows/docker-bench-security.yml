@@ -11,7 +11,7 @@ jobs:
     - name: Install pip 
       run: |
          docker pull imiell/bad-dockerfile
-         docker build -t imiell/bad-dockerfile/ ./
+         docker build -t imiell/bad-dockerfile ./
     
 
         
