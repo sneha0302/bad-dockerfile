@@ -8,12 +8,13 @@ jobs:
     runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+    - uses: actions/checkout@v2.4.2
     - name: Use Vulnerable image 
       run: |
-         docker pull imiell/bad-dockerfile
- 
-      
-        
+          docker build ./
+          docker images
+         #docker pull imiell/bad-dockerfile
+         
     - name: Run docker-bench-security 
       run: |
         docker run --rm --net host --pid host --userns host --cap-add audit_control \
